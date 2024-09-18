@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35004.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JordanChat", "JordanChat\JordanChat\JordanChat.csproj", "{BB08A5D3-AB99-43BA-9D95-9D863B1843C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JordanChat.Client", "JordanChat\JordanChat.Client\JordanChat.Client.csproj", "{B435CA09-49F7-445B-8E41-5BA73F2AEE57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB08A5D3-AB99-43BA-9D95-9D863B1843C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB08A5D3-AB99-43BA-9D95-9D863B1843C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB08A5D3-AB99-43BA-9D95-9D863B1843C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB08A5D3-AB99-43BA-9D95-9D863B1843C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B435CA09-49F7-445B-8E41-5BA73F2AEE57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B435CA09-49F7-445B-8E41-5BA73F2AEE57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B435CA09-49F7-445B-8E41-5BA73F2AEE57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B435CA09-49F7-445B-8E41-5BA73F2AEE57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14EAE492-B527-46B8-8A38-505CA2581A5E}
+	EndGlobalSection
+EndGlobal

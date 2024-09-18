@@ -1,0 +1,76 @@
+﻿@page "/Chat"
+@rendermode InteractiveServer
+@inject NavigationManager navigationManager
+
+<h1>Signalr Chat</h1>
+
+<div class="d-flex flex-row w-100">
+
+    <div class="p-2 d-flex flex-column w-75">
+
+        <textarea @bind="message" rows="3" class="border-1 mb-2 border-primary" />
+        <button type="button" @onclick="SendMessage" class="btn btn-primary">Send Message</button>
+
+        @foreach (var item in Messages)
+        {
+            <h3>
+                @item
+            </h3>
+        }
+
+
+    </div>
+
+    <div class="p-2 w-25">
+        <h3>Online users</h3>
+
+        <div class="border-1">
+        </div>
+    </div>
+
+</div>
+
+@code {
+    private string message { get; set; } = string.Empty;
+
+    private HubConnection hub;
+    private string _hubUrl;
+    private string channel = "Jordan";
+
+    private List<string> Messages = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        string baseUrl = navigationManager.BaseUri;
+
+        _hubUrl = baseUrl.TrimEnd('/') + "/chatHub";
+
+        hub = new HubConnectionBuilder()
+            .WithUrl(_hubUrl)
+            .Build();
+        await hub.StartAsync();
+
+        if(hub.State == HubConnectionState.Connected)
+        {
+            await hub.SendAsync("JoinAsync", channel);
+            hub.On<string>("OnBroadcast", OnRecieve);
+        }
+
+    }
+
+    private void OnRecieve(string message)
+    {
+        Messages.Add(message);
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task SendMessage()
+    {
+        if(hub.State == HubConnectionState.Connected)
+        {
+            await hub.SendAsync("BroadcastMessageAsync", message, channel);
+            message = "";
+        }
+    }
+
+}
